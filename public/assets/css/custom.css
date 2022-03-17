@@ -1,0 +1,387 @@
+
+#service{
+	min-height: 100vh;
+}
+
+.about{
+	background-color: #fdfdfd;
+}
+.font-heading{
+	font-family: 'Share Tech',Helvetica,Arial,Lucida,sans-serif;
+	line-height: 1.2em;
+	font-size: 80px;
+	width: 70%;
+	text-align: center;
+	color: white;
+}
+
+.font-heading-text{
+	font-family: 'Share Tech',Helvetica,Arial,Lucida,sans-serif;
+	font-size: 18px;
+    line-height: 1.8em;
+    text-align: center;
+    width: 70%;
+    color: white;
+}
+
+.section-title {
+    text-align: center;
+    padding: 30px 0;
+    position: relative;
+}
+
+.section-title span {
+	font-family: 'Share Tech',Helvetica,Arial,Lucida,sans-serif;
+    /*position: absolute;*/
+    top: 30px;
+    color: #f0f1f385;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    font-weight: 700;
+    font-size: 100px;
+    text-transform: uppercase;
+    line-height: 0;
+}
+
+.section-title p {
+	font-family: 'Share Tech',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    color: #5f687b;
+    position: relative;
+    z-index: 2;
+}
+
+.service .card{
+	margin-top: 30px;
+	width: 90%;
+	text-align: left;
+	min-height: 350px;
+}
+
+.service .card-body{
+	padding-top: 40px!important;
+    padding-right: 30px!important;
+    padding-bottom: 40px!important;
+    padding-left: 30px!important;
+}
+
+.service .card img{
+	width: 70px;
+}
+
+.service .card .card-title{
+	padding-top: 30px;
+	font-family: 'Share Tech',Helvetica,Arial,Lucida,sans-serif;
+	font-size: 24px;
+    line-height: 1.2em;
+
+}
+
+.service .card .card-text{
+	padding-top: 10px;
+	font-family: 'Share Tech',Helvetica,Arial,Lucida,sans-serif;
+	font-size: 16px;
+    line-height: 1.8em;
+
+}
+
+.card-color1{
+	background-color: #ff8a3d!important;
+	color: white;
+}
+
+.card-color2{
+	background-color: #f1f1f1!important;
+}
+
+.card-color3{
+	background-color: #ffffff!important;
+	border :1px solid rgba(21,49,78,0.17);
+}
+
+.card-color4{
+	background-color: #ffffff!important;
+	border :1px solid rgba(21,49,78,0.17);
+}
+
+.card-color5{
+	background-color: #15314e!important;
+	color: white;
+}
+
+.card-color6{
+	background-color: #ffa727!important;
+	color: white;
+}
+
+.service2{
+	background-color: #fdfdfd!important;
+	min-height: 100vh;
+}
+
+.service2 .section-title {
+    text-align: left!important;
+    padding: 30px 0;
+    position: relative;
+}
+
+.service2 p{
+	font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif!important;
+	text-align: left;
+}
+
+.service2 a{
+
+	padding-top: 16px!important;
+    padding-right: 32px!important;
+    padding-bottom: 16px!important;
+    padding-left: 32px!important;
+}
+
+.service2-img{
+	width: 100%;
+}
+
+.btn-learn:hover{
+	background-color: blue;
+}
+
+.btn-learn{
+	color: #ffffff!important;
+    border-width: 0px!important;
+    border-radius: 100px;
+    letter-spacing: 5px;
+    font-size: 15px;
+    font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif!important;
+    font-weight: 700!important;
+    text-transform: uppercase!important;
+    background-color: #15314e;
+}
+
+.btn-service2{
+	margin-top: 50px;
+}
+#sistem{
+	min-height: 100vh;
+	background-image: linear-gradient(192deg,rgb(0 72 114 / 50%) 0%,#291160 100%),url('../img/pc/bg.jpg');
+	border-radius: 0 26vw 26vw 0;
+    margin-right: 5%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sistem h3{
+	font-family: 'Share Tech',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 48px;
+    line-height: 1.2em;
+    color: white;
+}
+
+.sistem p{
+	font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 18px;
+    line-height: 1.8em;
+    color: white;
+}
+
+.sistem a{
+	border-color: #ff8a3d!important;
+    border-radius: 100px!important;
+    letter-spacing: 5px!important;
+    padding: 1em 1em!important;
+    background-image: initial;
+    background-color: #ff8a3d;
+    font-size: 15px;
+    color: white;
+    font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif!important;
+    font-weight: 700!important;
+    text-transform: uppercase!important;
+}
+
+.banner{
+	padding-top: 0px;
+    margin-top: -36px;
+    width: 45%;
+    max-width: 100%;
+    background-image: linear-gradient(90deg,#ffffff 0%,#2573f9 100%);
+    background-color: #2573f9;
+    border-radius: 0 100px 100px 0;
+    position: relative;
+    z-index: 1;
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 12px;
+    padding-left: 40px;
+}
+
+.banner-font{
+	font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 5px;
+    line-height: 2em;
+    text-align: right;
+    color: white;
+}
+
+.testimonials{
+	min-height: 100vh;
+}
+
+.testimonials .card img{
+	width: 20px;
+}
+
+.testimonials .card{
+	margin-top: 30px;
+	width: 100%;
+	text-align: left;
+	min-height: 200px;
+}
+
+.testimonials .card .card-title{
+	padding-top: 30px;
+	font-family: 'Share Tech',Helvetica,Arial,Lucida,sans-serif;
+	font-size: 16px;
+    line-height: 2em;
+
+}
+
+.testimonials .card .card-text{
+	padding-top: 10px;
+	font-family: 'Share Tech',Helvetica,Arial,Lucida,sans-serif;
+	font-size: 16px;
+    line-height: 1.8em;
+    font-weight: 700;
+
+}
+
+.section-service{
+	min-height: 100vh;
+	background-image: linear-gradient(192deg,rgb(0 72 114 / 50%) 0%,#291160 100%),url('../img/pc/3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.service-content{
+	min-height: 100vh;
+}
+
+.service-content img{
+	width: 40px;
+	position: relative;
+}
+
+.icon-box{
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	min-height: 150px;
+	width: 90%;
+	margin-top: 50px;
+}
+
+.service-content .icon-box p{
+	padding-top: 20px;
+}
+
+.btn-service-content{
+	color: #004675!important;
+    border-width: 0px!important;
+    border-radius: 0px;
+    letter-spacing: 4px;
+    font-size: 11px;
+    font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif!important;
+    font-weight: 700!important;
+    text-transform: uppercase!important;
+    background-color: #f1f1f1;
+    padding-top: 6px!important;
+    padding-right: 20px!important;
+    padding-bottom: 10px!important;
+    padding-left: 20px!important;
+}
+
+.section-about{
+	min-height: 100vh;
+	background-image: linear-gradient(192deg,rgb(0 72 114 / 50%) 0%,#291160 100%),url('../img/pc/6.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+  .text-about{
+  	    font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 16px;
+    line-height: 1.8em;
+    width: 70%;
+  }
+
+  .font-heading-text2{
+  	font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 18px;
+    line-height: 1.8em;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+  }
+
+@media (max-width: 768px) {
+  .service .card{
+	width: 100%;
+	}
+
+	.service2-img{
+	margin-top: 50px;
+	}
+
+	.banner{
+		width: 100%;
+		margin-top: 0px;
+		padding-left: 0px!important;
+		padding-right: 0px!important;
+	}
+	.banner-font{
+		text-align: left;
+	}
+
+	.section-title span {
+		font-size: 50px;
+	}
+
+	.font-heading{
+	font-size: 48px;
+	width: 100%;
+}
+
+.font-heading-text{
+	font-size: 14px;
+    width: 100%;
+}
+
+.about .content h3 {
+	font-size: 22px;
+}
+
+.about .content h2 {
+	font-size: 32px;
+}
+
+.sistem h3 {
+	font-size: 32px;
+}
+
+.section-title p {
+	font-size: 24px;
+}
+
+.text-about{
+	width: 100%;
+	}
+
+}
