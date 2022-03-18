@@ -24,3 +24,4 @@ Route::get('about','FrontController@about');
 Route::get('contact','FrontController@contact');
 Route::get('blog','FrontController@blog');
 Route::get('single_blog/{id}','FrontController@single_blog');
+Route::get('detail_produk/{id}','FrontController@detail_produk');

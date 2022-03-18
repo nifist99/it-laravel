@@ -21,6 +21,7 @@
   <!-- Vendor CSS Files -->
   <link href="{{url('assets/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
   <link href="{{url('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{url('assets/vendor/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet">
   <link href="{{url('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
   <link href="{{url('assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
   <link href="{{url('assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
@@ -30,6 +31,8 @@
   <!-- Template Main CSS File -->
   <link href="{{url('assets/css/style.css')}}" rel="stylesheet">
   <link href="{{url('assets/css/custom.css')}}" rel="stylesheet">
+
+  @stack('css');
 
 </head>
 
@@ -51,7 +54,7 @@
           <li><a href="{{url('about')}}">About</a></li>
           <li><a href="{{url('blog')}}">Blog</a></li>
           <li><a href="{{url('contact')}}">Contact</a></li>
-          <!-- <li><a href="index.html" class="getstarted">Login</a></li> -->
+          <li><a href="{{url('admin/login')}}" class="getstarted">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -137,15 +140,18 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="{{url('assets/js/jquery.min.js')}}"></script>
   <script src="{{url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{url('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
   <script src="{{url('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
   <script src="{{url('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{url('assets/vendor/sweetalert2/sweetalert2.min.js')}}"></script>
   <script src="{{url('assets/vendor/waypoints/noframework.waypoints.js')}}"></script>
-  <script src="{{url('assets/vendor/php-email-form/validate.js')}}"></script>
 
   <!-- Template Main JS File -->
   <script src="{{url('assets/js/main.js')}}"></script>
+
+  @stack('css');
 
 </body>
 

@@ -331,7 +331,26 @@
     color: white;
   }
 
+  .img-produk{
+      height: 200px;
+  }
+
+  .mt-10{
+      margin-top: 10px;
+  }
+
+  .mt-50{
+    margin-top: 50px;
+}
+
+.detail_produk{
+    min-height: 100vh;
+}
+
 @media (max-width: 768px) {
+    .img-produk{
+        height: auto;
+    }
   .service .card{
 	width: 100%;
 	}

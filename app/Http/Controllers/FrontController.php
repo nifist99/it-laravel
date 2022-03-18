@@ -20,7 +20,11 @@ class FrontController extends Controller
     
     public function produk(){
 
-        return view('web.produk');
+        $data['produk'] = DB::table('db_produk')
+        ->orderBy('created_at','desc')
+        ->paginate(12);
+
+        return view('web.produk',$data);
     }
 
     public function contact(){
@@ -41,6 +45,14 @@ class FrontController extends Controller
     public function about(){
 
         return view('web.about');
+    }
+
+    public function detail_produk($id){
+        $data['title']='Detail Produk';
+        $data['row']=DB::table('db_produk')
+        ->where('id',$id)
+        ->first();
+        return view('web.detail_produk',$data);
     }
 
     
