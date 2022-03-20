@@ -3,13 +3,19 @@
 
 <main id="main">
 
-    <section id="section-about" class="section-service d-flex justify-content-center align-items-center">
-            <p class="font-heading">Product</p>
-    </section>
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
 
-    <section id="banner" class="banner">
-        <p class="banner-font">Banjarnegara IT Service</p>
-    </section>
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>{{$title}}</h2>
+        <ol>
+          <li><a href="{{url('/')}}">Home</a></li>
+          <li><a href="{{url('produk')}}">{{$title}}</a></li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
 
     <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
@@ -107,8 +113,8 @@
               <div class="card" style="width: 90%;">
                 <img class="card-img-top img-produk" src="{{url($key->foto)}}" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">{{substr($key->nama, 0, 30)}}...</h5>
-                  <p class="card-text"><b>{{number_format($key->harga)}}</b></p>
+                  <h5 class="card-title"><a style="color: black" href="{{url('detail_produk/'.$key->id)}}">{{substr($key->nama, 0, 30)}}...</a></h5>
+                  <p class="card-text"><b>{{number_format($key->harga)}}</b>&nbsp;<span>({{$key->status}})</span></p>
                   <a href="{{url('detail_produk/'.$key->id)}}" class="btn btn-sm btn-primary">Cek Detail</a>
                 </div>
               </div>

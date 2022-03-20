@@ -66,6 +66,7 @@
 	        | 
 	        */
 	        $this->sub_module = array();
+			$this->sub_module[] = ['label'=>'Komentar','path'=>'blog_komentar','parent_columns'=>'judul','foreign_key'=>'id_blog_content','button_color'=>'success','button_icon'=>'fa fa-bars'];
 
 
 	        /* 
@@ -260,6 +261,7 @@
 	    */
 	    public function hook_before_add(&$postdata) {        
 	        //Your code here
+			$postdata['id_cms_users']=CRUDBooster::myId();
 
 	    }
 

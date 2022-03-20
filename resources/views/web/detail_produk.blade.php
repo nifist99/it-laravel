@@ -23,7 +23,9 @@
         <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-12">
-                <img src="{{url($row->foto)}}" alt="">
+                <div class="text-center">
+                <img src="{{url($row->foto)}}" alt="" width="100%">
+                </div>
             </div>
             <div class="col-md-8 col-sm-12">
                 <div class="text-center">
@@ -46,10 +48,17 @@
                         <td>:</td>
                         <td>{{$row->status}}</td>
                     </tr>
+                    @if($row->url_online_shope)
+                    <tr>
+                        <td>Url Online Shope</td>
+                        <td>:</td>
+                        <td>{{$row->url_online_shope}}</td>
+                    </tr>
+                    @endif
                 </table>
                 </div>
                 <div class="detail-body">
-                    <p>{{$row->detail}}</p>
+                    <p>@php echo $row->detail; @endphp</p>
                 </div>
             </div>    
         </div>

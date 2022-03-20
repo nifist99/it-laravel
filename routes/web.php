@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/','FrontController@index');
 Route::get('services','FrontController@services');
@@ -25,3 +23,9 @@ Route::get('contact','FrontController@contact');
 Route::get('blog','FrontController@blog');
 Route::get('single_blog/{id}','FrontController@single_blog');
 Route::get('detail_produk/{id}','FrontController@detail_produk');
+
+//post
+
+Route::post('search_blog','FrontController@search_blog');
+Route::post('komentar','FrontController@komentar');
+Route::post('contact','FrontController@kontak');

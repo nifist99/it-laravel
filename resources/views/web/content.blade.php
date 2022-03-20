@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="csrf-token" content="{{csrf_token()}}">
 
   <title>{{CRUDBooster::getSetting('appname')}}</title>
   <meta content="" name="description">
@@ -47,13 +48,12 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="{{url('/')}}" class="active">Home</a></li>
-
+          <li><a href="{{url('/')}}">Home</a></li>
           <li><a href="{{url('services')}}">Services</a></li>
-          <li><a href="{{url('produk')}}">Produk</a></li>
-          <li><a href="{{url('about')}}">About</a></li>
-          <li><a href="{{url('blog')}}">Blog</a></li>
+          <li><a href="{{url('about')}}">About Us</a></li>
           <li><a href="{{url('contact')}}">Contact</a></li>
+          <li><a href="{{url('produk')}}">Produk</a></li>
+          <li><a href="{{url('blog')}}">Blog</a></li>
           <li><a href="{{url('admin/login')}}" class="getstarted">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -73,10 +73,9 @@
             <div class="footer-info">
               <h3>{{CRUDBooster::getSetting('appname')}}</h3>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                {{CRUDBooster::getSetting('alamat')}}<br><br>
+                <strong>Phone:</strong>{{CRUDBooster::getSetting('phone')}}<br>
+                <strong>Email:</strong>{{CRUDBooster::getSetting('email')}}<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -91,11 +90,12 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url('/')}}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url('about')}}">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url('services')}}">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url('produk')}}">Produk</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url('blog')}}">Blog</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url('contact')}}">Contact</a></li>
             </ul>
           </div>
 
@@ -151,7 +151,7 @@
   <!-- Template Main JS File -->
   <script src="{{url('assets/js/main.js')}}"></script>
 
-  @stack('css');
+  @stack('js');
 
 </body>
 
