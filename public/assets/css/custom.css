@@ -347,6 +347,27 @@
     min-height: 100vh;
 }
 
+.builder{
+    min-height: 100vh;
+}
+
+.card-builder{
+    box-shadow: -1px 0px 5px 1px rgba(204,204,204,0.75);
+    -webkit-box-shadow: -1px 0px 5px 1px rgba(204,204,204,0.75);
+    -moz-box-shadow: -1px 0px 5px 1px rgba(204,204,204,0.75);
+background-color: white;
+padding: 30px;
+height: auto;
+width: 100%;
+border-radius: 20px;
+border: 1px solid #EEEEEE;
+}
+
+.builder-select{
+    width: 100%!important;
+    color: #212529a6!important;
+}
+
 @media (max-width: 768px) {
     .img-produk{
         height: auto;

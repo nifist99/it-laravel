@@ -52,7 +52,7 @@
                     <tr>
                         <td>Url Online Shope</td>
                         <td>:</td>
-                        <td>{{$row->url_online_shope}}</td>
+                        <td><a href="{{$row->url_online_shope}}">{{$row->url_online_shope}}</a></td>
                     </tr>
                     @endif
                 </table>

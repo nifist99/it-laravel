@@ -24,6 +24,11 @@ Route::get('blog','FrontController@blog');
 Route::get('single_blog/{id}','FrontController@single_blog');
 Route::get('detail_produk/{id}','FrontController@detail_produk');
 
+//builder
+Route::get('builder','BuilderController@index');
+Route::get('kategori_produk/{id}','BuilderController@kategori_produk');
+Route::get('produkpc/{nama}/{id}','BuilderController@produkpc');
+
 //post
 
 Route::post('search_blog','FrontController@search_blog');

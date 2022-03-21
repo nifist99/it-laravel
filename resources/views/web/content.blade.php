@@ -28,6 +28,7 @@
   <link href="{{url('assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
   <link href="{{url('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{url('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+  <link href="{{url('assets/vendor/select2/css/select2.min.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="{{url('assets/css/style.css')}}" rel="stylesheet">
@@ -96,6 +97,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="{{url('produk')}}">Produk</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{url('blog')}}">Blog</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{url('contact')}}">Contact</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url('builder')}}">PC Builder</a></li>
             </ul>
           </div>
 
@@ -147,6 +149,8 @@
   <script src="{{url('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
   <script src="{{url('assets/vendor/sweetalert2/sweetalert2.min.js')}}"></script>
   <script src="{{url('assets/vendor/waypoints/noframework.waypoints.js')}}"></script>
+  <script src="{{url('assets/vendor/select2/js/select2.min.js')}}"></script>
+  <script src="https://kit.fontawesome.com/08824b81cd.js" crossorigin="anonymous"></script>
 
   <!-- Template Main JS File -->
   <script src="{{url('assets/js/main.js')}}"></script>

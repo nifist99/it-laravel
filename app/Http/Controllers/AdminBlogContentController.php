@@ -41,7 +41,7 @@
 			$this->form[] = ['label'=>'Judul','name'=>'judul','type'=>'text','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Kategori','name'=>'id_blog_kategori','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'blog_kategori,nama'];
 			$this->form[] = ['label'=>'Foto','name'=>'foto','type'=>'upload','validation'=>'required|image|max:10000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
-			$this->form[] = ['label'=>'Content','name'=>'content','type'=>'wysiwyg','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Content','name'=>'content','type'=>'wysiwyg','validation'=>'required|string|min:1|max:500000','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Status','name'=>'status','type'=>'select','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10','dataenum'=>'publish;unpublish'];
 			# END FORM DO NOT REMOVE THIS LINE
 
