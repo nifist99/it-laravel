@@ -23,6 +23,7 @@ Route::get('contact','FrontController@contact');
 Route::get('blog','FrontController@blog');
 Route::get('single_blog/{id}','FrontController@single_blog');
 Route::get('detail_produk/{id}','FrontController@detail_produk');
+Route::get('single_services/{id}','FrontController@single_services');
 
 //builder
 Route::get('builder','BuilderController@index');
@@ -34,3 +35,5 @@ Route::get('produkpc/{nama}/{id}','BuilderController@produkpc');
 Route::post('search_blog','FrontController@search_blog');
 Route::post('komentar','FrontController@komentar');
 Route::post('contact','FrontController@kontak');
+
+

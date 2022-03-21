@@ -109,82 +109,25 @@
         </div>
 
         <div class="row">
+          
+          @foreach($services as $serv)
           <div class="col-md-4 col-sm-12">
-            <div class="card card-color1">
+            <a href="{{url('single_services/'.$serv->id)}}">
+            <div class="card" style="background-color: {{$serv->background_color}}!important;color:{{$serv->text_color}};">
               <div class="card-body">
                 <div class="text-center">
-                    <img src="{{url('assets/img/icon/1.png')}}">
+                    <img src="{{url($serv->icon)}}">
                 </div>
 
-                <h5 class="card-title">Laptop Repair / PC Repair</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">{{$serv->judul}}</h5>
+                <p class="card-text">{{substr($serv->content,0,100)}}</p>
               </div>
             </div>
+          </a>
           </div>
+          @endforeach
 
-          <div class="col-md-4 col-sm-12">
-            <div class="card card-color2">
-              <div class="card-body">
-                <div class="text-center">
-                    <img src="{{url('assets/img/icon/2.png')}}">
-                </div>
-
-                <h5 class="card-title">Virus and Spyware Removal</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-12">
-            <div class="card card-color3">
-              <div class="card-body">
-                <div class="text-center">
-                    <img src="{{url('assets/img/icon/3.png')}}">
-                </div>
-                <h5 class="card-title">Data Recovery and Backup Plan</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-12">
-            <div class="card card-color4">
-              <div class="card-body">
-                <div class="text-center">
-                    <img src="{{url('assets/img/icon/4.png')}}">
-                </div>
-
-                <h5 class="card-title">Network Design</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-12">
-            <div class="card card-color5">
-              <div class="card-body">
-                <div class="text-center">
-                    <img src="{{url('assets/img/icon/5.png')}}">
-                </div>
-
-                <h5 class="card-title">Build Web & Mobile App</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-12">
-            <div class="card card-color6">
-              <div class="card-body">
-                <div class="text-center">
-                    <img src="{{url('assets/img/icon/6.png')}}">
-                </div>
-
-                <h5 class="card-title">Build Mining Crypto</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-          </div>
+   
 
         </div>
       </div>

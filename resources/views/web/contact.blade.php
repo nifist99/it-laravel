@@ -3,7 +3,7 @@
 
 <main id="main">
     <section id="section-about" class="section-service d-flex justify-content-center align-items-center">
-            <p class="font-heading">Get In Touch</p>
+            <p class="font-heading">{{$row->header}}</p>
     </section>
 
     <section id="banner" class="banner">
@@ -13,6 +13,10 @@
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
+        <div class="section-title text-center">
+          <span>{{CRUDBooster::getSetting('appname')}}</span>
+          <p>{{$row->content}}</p>
+        </div>
 
         <div class="row mt-5">
 

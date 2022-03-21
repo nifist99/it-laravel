@@ -5,7 +5,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <section id="section-service" class="section-service d-flex justify-content-center align-items-center">
 
-            <p class="font-heading">Managed IT Services & Support</p>
+            <p class="font-heading">{{$row->header}}</p>
  
     </section>
 
@@ -19,78 +19,20 @@
       <div class="container">
 
         <div class="row">
+          @foreach($services as $serv)
           <div class="col-md-4 col-sm-12">
-            <div class="icon-box card-color1">
+            <div class="icon-box" style="background-color: {{$serv->background_color}}!important;color:{{$serv->text_color}};">
               <div class="d-flex justify-content-center">
-                <img src="{{url('assets/img/icon/1.png')}}">
+                <img src="{{url($serv->icon)}}">
               </div>
-              <p class="text-center">oluptatum deleniti atque corrupti</p>
+              <p class="text-center">{{$serv->judul}}</p>
             </div>
             <div>
-              <a href="" class="btn-service-content">Learn More</a>
+              <a href="{{url('single_services/'.$serv->id)}}" class="btn-service-content">Learn More</a>
             </div>
           </div>
+          @endforeach
 
-          <div class="col-md-4 col-sm-12">
-            <div class="icon-box card-color2">
-              <div class="d-flex justify-content-center">
-                <img src="{{url('assets/img/icon/2.png')}}">
-              </div>
-              <p class="text-center">oluptatum deleniti atque corrupti</p>
-            </div>
-            <div>
-              <a href="" class="btn-service-content">Learn More</a>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-12">
-            <div class="icon-box card-color3">
-              <div class="d-flex justify-content-center">
-                <img src="{{url('assets/img/icon/3.png')}}">
-              </div>
-              <p class="text-center">oluptatum deleniti atque corrupti</p>
-            </div>
-            <div>
-              <a href="" class="btn-service-content">Learn More</a>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-12">
-            <div class="icon-box card-color4">
-              <div class="d-flex justify-content-center">
-                <img src="{{url('assets/img/icon/4.png')}}">
-              </div>
-              <p class="text-center">oluptatum deleniti atque corrupti</p>
-            </div>
-            <div>
-              <a href="" class="btn-service-content">Learn More</a>
-            </div>
-          </div>
-
-
-          <div class="col-md-4 col-sm-12">
-            <div class="icon-box card-color5">
-              <div class="d-flex justify-content-center">
-                <img src="{{url('assets/img/icon/5.png')}}">
-              </div>
-              <p class="text-center">oluptatum deleniti atque corrupti</p>
-            </div>
-            <div>
-              <a href="" class="btn-service-content">Learn More</a>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-12">
-            <div class="icon-box card-color6">
-              <div class="d-flex justify-content-center">
-                <img src="{{url('assets/img/icon/6.png')}}">
-              </div>
-              <p class="text-center">oluptatum deleniti atque corrupti</p>
-            </div>
-            <div>
-              <a href="" class="btn-service-content">Learn More</a>
-            </div>
-          </div>
 
         </div>
 

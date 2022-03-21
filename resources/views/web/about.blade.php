@@ -4,7 +4,7 @@
 <main id="main">
 
     <section id="section-about" class="section-service d-flex justify-content-center align-items-center">
-           <p class="font-heading">Meet Your Local IT Company</p>
+           <p class="font-heading">{{$about->header}}</p>
    </section>
 
    <section id="banner" class="banner">

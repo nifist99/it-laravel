@@ -10,13 +10,23 @@ use Response;
 class FrontController extends Controller
 {
     public function index(){
+        $data['services']=DB::table('db_web_services')
+                        ->where('status','publish')
+                        ->get();
 
-        return view('web.index');
+        return view('web.index',$data);
     }
 
     public function services(){
+        $data['row']=DB::table('db_content_web')
+                        ->where('kategori','services')
+                        ->first();
 
-        return view('web.services');
+        $data['services']=DB::table('db_web_services')
+                        ->where('status','publish')
+                        ->get();
+
+        return view('web.services',$data);
     }
     
     public function produk(){
@@ -31,6 +41,9 @@ class FrontController extends Controller
 
     public function contact(){
 
+        $data['row']=DB::table('db_content_web')
+                        ->where('kategori','contact')
+                        ->first();
         $data['kategori_services'] = DB::table('db_kategori_service')
                                     ->get();
 
@@ -92,7 +105,7 @@ class FrontController extends Controller
                     ->join('cms_users','blog_content.id_cms_users','=','cms_users.id')
                     ->join('blog_kategori','blog_content.id_blog_kategori','=','blog_kategori.id')
                     ->where('blog_content.id',$id)
-                    ->select('blog_content.*','blog_kategori.nama as kategori','cms_users.name')
+                    ->select('blog_content.*','blog_kategori.nama as kategori','cms_users.*')
                     ->first();
         
                     $data['recent_blog'] = DB::table('blog_content')
@@ -215,6 +228,17 @@ class FrontController extends Controller
         $respon['api_message']='Request Terkirim';
 
         return Response::json($respon);
+    }
+
+
+    public function single_services($id){
+        
+        $data['row']=DB::table('db_web_services')
+                        ->where('id',$id)
+                        ->first();
+        
+        return view('web.single_services',$data);
+
     }
 
     
