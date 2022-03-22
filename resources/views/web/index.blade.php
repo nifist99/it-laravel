@@ -16,7 +16,7 @@
                 Managed IT Services You Can Trust
               </p>
               <p class="animate__animated animate__fadeInUp font-heading-text">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              <a href="{{url('services')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
         </div>
@@ -29,7 +29,7 @@
                 Managed Build PC Gaming & Editing
               </p>
               <p class="animate__animated animate__fadeInUp font-heading-text">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              <a href="{{url('services')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@
               We Can Build Web Developer & Mobile App
             </p>
               <p class="animate__animated animate__fadeInUp font-heading-text">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              <a href="{{url('services')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@
                 </div>
 
                 <h5 class="card-title">{{$serv->judul}}</h5>
-                <p class="card-text">{{substr($serv->content,0,100)}}</p>
+                <p class="card-text">@php echo substr($serv->content,0,50); @endphp</p>
               </div>
             </div>
           </a>

@@ -241,6 +241,33 @@ class FrontController extends Controller
 
     }
 
+    public function link_services(){
+        $respon['data']=DB::table('db_web_services')
+                            ->get();
+
+        $respon['api_status']='success';
+        $respon['api_message']='success get data';
+                    
+        return Response::json($respon);
+
+    }
+
+    public function suscribe(Request $request){
+
+        $data['email']           =$request->email_suscribe;
+        $data['created_at']     =date('Y-m-d');
+
+
+        $cek=DB::table('db_suscribe')
+        ->insert($data);
+
+        $respon['api_status']='success';
+        $respon['api_message']='Request Terkirim';
+
+        return Response::json($respon);
+    }
+
+
     
     
 }

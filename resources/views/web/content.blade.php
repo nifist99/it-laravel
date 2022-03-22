@@ -103,20 +103,15 @@
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Services Kami</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            <ul id="link_services">
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Subscribe</h4>
             <p>Silahkan Suscribe Untuk Mendapatkan Berita Terbaru</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+            <form id="suscribe">
+              <input type="email" name="email_suscribe" id="email_suscribe"><input type="submit" id="kirim_email" value="Subscribe">
             </form>
 
           </div>
@@ -130,11 +125,7 @@
         &copy; Copyright <strong><span>{{CRUDBooster::getSetting('appname')}}</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/sailor-free-bootstrap-theme/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/">{{CRUDBooster::getSetting('appname')}}</a>
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -154,6 +145,164 @@
 
   <!-- Template Main JS File -->
   <script src="{{url('assets/js/main.js')}}"></script>
+  
+  <script>
+     $(document).ready(function() {
+          $.ajax({
+             type: "GET",
+             dataType: "json",
+             url: "{{url('link_services')}}",
+             success: function(respon){
+                var html=''; 
+                $.each(respon.data, function (index, v) {
+                        html +='<li><i class="bx bx-chevron-right"></i>';
+                        html +='<a href="{{url("single_services")}}/'+v.id+'">'+v.judul+'</a>';
+                        html +='</li>';
+                    });
+                    $('#link_services').append(html);
+                                                                  
+             }
+          });
+     })
+</script>
+
+<script>
+  $(function () {
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+$('#kirim_email').click(function (e) {
+    e.preventDefault();
+    $(this).html('Sending..');
+
+    var email_suscribe= $('#email_suscribe').val();
+    if(email_suscribe==''){
+        $('#suscribe').trigger("reset");
+        $('#kirim_email').html('kirim');
+        Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: "silahkan isi email",
+                showConfirmButton: false,
+                timer: 5000
+                })
+    }else{ 
+      $.ajax({
+        data: $('#suscribe').serialize(),
+        url: "{{url('suscribe')}}",
+        type: "POST",
+        dataType: 'json',
+        success: function (respon) {
+            if(respon.api_status=='success'){
+                $('#suscribe').trigger("reset");
+                $('#kirim_email').html('Kirim');
+                    Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: respon.api_message,
+                    showConfirmButton: false,
+                    timer: 5000
+                    })
+            }else{
+                $('#suscribe').trigger("reset");
+                $('#kirim_email').html('Kirim');
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: respon.api_message,
+                    showConfirmButton: false,
+                    timer: 5000
+                    })
+            }    
+        },
+        error: function (respon) {
+            $('#suscribe').trigger("reset");
+            $('#kirim_email').html('Kirim');
+            Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: respon.api_message,
+                    showConfirmButton: false,
+                    timer: 5000
+                    })
+            
+        }
+    });
+  }
+})
+
+$('#kirim').click(function (e) {
+    e.preventDefault();
+    $(this).html('Sending..');
+
+    var nama      = $('#nama').val();
+    var hp        = $('#hp').val();
+    var services  = $('#services').val();
+    var alamat    = $('#alamat').val();
+    var note      = $('#note').val();
+
+    if(nama==''||services==''||hp==''||alamat==''||note==''  ){
+        $('#kontak').trigger("reset");
+        $('#kirim').html('Kirim');
+        Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: "data ada yang kosong silahkan isi semua",
+                showConfirmButton: false,
+                timer: 5000
+                })
+    }else{ 
+       $.ajax({
+        data: $('#kontak').serialize(),
+        url: "{{url('contact')}}",
+        type: "POST",
+        dataType: 'json',
+        success: function (respon) {
+            if(respon.api_status=='success'){
+                $('#kontak').trigger("reset");
+                $('#kirim').html('Kirim');
+                    Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: respon.api_message,
+                    showConfirmButton: false,
+                    timer: 5000
+                    })
+            }else{
+                $('#kontak').trigger("reset");
+                $('#kirim').html('Kirim');
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: respon.api_message,
+                    showConfirmButton: false,
+                    timer: 5000
+                    })
+            }    
+        },
+        error: function (respon) {
+            $('#kontak').trigger("reset");
+            $('#kirim').html('Kirim');
+            Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: respon.api_message,
+                    showConfirmButton: false,
+                    timer: 5000
+                    })
+            
+        }
+    });
+}
+    });
+
+
+})
+</script>
 
   @stack('js');
 

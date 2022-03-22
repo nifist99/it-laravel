@@ -17,8 +17,8 @@
     </div>
   </section>
 
-    <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
+ 
+    {{-- <section id="pricing" class="pricing">
       <div class="container">
 
         <div class="row">
@@ -95,7 +95,7 @@
         </div>
 
       </div>
-    </section><!-- End Pricing Section -->
+    </section> --}}
 
     <!-- ======= Frequently Asked Questions Section ======= -->
     <section id="faq" class="faq">

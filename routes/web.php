@@ -25,6 +25,9 @@ Route::get('single_blog/{id}','FrontController@single_blog');
 Route::get('detail_produk/{id}','FrontController@detail_produk');
 Route::get('single_services/{id}','FrontController@single_services');
 
+Route::get('link_services','FrontController@link_services');
+
+
 //builder
 Route::get('builder','BuilderController@index');
 Route::get('kategori_produk/{id}','BuilderController@kategori_produk');
@@ -35,5 +38,6 @@ Route::get('produkpc/{nama}/{id}','BuilderController@produkpc');
 Route::post('search_blog','FrontController@search_blog');
 Route::post('komentar','FrontController@komentar');
 Route::post('contact','FrontController@kontak');
+Route::post('suscribe','FrontController@suscribe');
 
 
