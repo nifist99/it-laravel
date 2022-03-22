@@ -5,7 +5,7 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminDbContentWebController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminDbProjectController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function cbInit() {
 
@@ -16,7 +16,7 @@
 			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = true;
-			$this->button_action_style = "button_icon_text";
+			$this->button_action_style = "button_icon";
 			$this->button_add = true;
 			$this->button_edit = true;
 			$this->button_delete = true;
@@ -25,27 +25,36 @@
 			$this->button_filter = true;
 			$this->button_import = false;
 			$this->button_export = false;
-			$this->table = "db_content_web";
+			$this->table = "db_project";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Kategori","name"=>"kategori"];
-			$this->col[] = ["label"=>"Header","name"=>"header"];
+			$this->col[] = ["label"=>"Kategori Service","name"=>"id_db_kategori_service","join"=>"db_kategori_service,nama"];
+			$this->col[] = ["label"=>"Nama","name"=>"nama"];
+			$this->col[] = ["label"=>"Harga","name"=>"harga"];
+			$this->col[] = ["label"=>"Foto","name"=>"foto","image"=>true];
+			$this->col[] = ["label"=>"Status","name"=>"status"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Kategori','name'=>'kategori','type'=>'text','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Header','name'=>'header','type'=>'text','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Content','name'=>'content','type'=>'textarea','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Kategori Service','name'=>'id_db_kategori_service','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'db_kategori_service,nama'];
+			$this->form[] = ['label'=>'Nama','name'=>'nama','type'=>'text','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Content','name'=>'content','type'=>'wysiwyg','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Harga','name'=>'harga','type'=>'money','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Foto','name'=>'foto','type'=>'upload','validation'=>'required|image|max:30000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
+			$this->form[] = ['label'=>'Status','name'=>'status','type'=>'select','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
+			//$this->form[] = ["label"=>"Db Kategori Service","name"=>"id_db_kategori_service","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"db_kategori_service,nama"];
 			//$this->form[] = ["label"=>"Nama","name"=>"nama","type"=>"textarea","required"=>TRUE,"validation"=>"required|string|min:5|max:5000"];
-			//$this->form[] = ["label"=>"Header","name"=>"header","type"=>"textarea","required"=>TRUE,"validation"=>"required|string|min:5|max:5000"];
 			//$this->form[] = ["label"=>"Content","name"=>"content","type"=>"textarea","required"=>TRUE,"validation"=>"required|string|min:5|max:5000"];
+			//$this->form[] = ["label"=>"Harga","name"=>"harga","type"=>"money","required"=>TRUE,"validation"=>"required|integer|min:0"];
+			//$this->form[] = ["label"=>"Foto","name"=>"foto","type"=>"upload","required"=>TRUE,"validation"=>"required|image|max:3000","help"=>"File types support : JPG, JPEG, PNG, GIF, BMP"];
+			//$this->form[] = ["label"=>"Status","name"=>"status","type"=>"textarea","required"=>TRUE,"validation"=>"required|string|min:5|max:5000"];
 			# OLD END FORM
 
 			/* 

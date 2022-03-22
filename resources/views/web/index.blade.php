@@ -15,7 +15,6 @@
               <p class="animate__animated animate__fadeInDown font-heading">
                 Managed IT Services You Can Trust
               </p>
-              <p class="animate__animated animate__fadeInUp font-heading-text">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
               <a href="{{url('services')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
@@ -28,7 +27,6 @@
               <p class="animate__animated animate__fadeInDown font-heading">
                 Managed Build PC Gaming & Editing
               </p>
-              <p class="animate__animated animate__fadeInUp font-heading-text">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
               <a href="{{url('services')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
@@ -41,7 +39,6 @@
               <p class="animate__animated animate__fadeInDown font-heading">
               We Can Build Web Developer & Mobile App
             </p>
-              <p class="animate__animated animate__fadeInUp font-heading-text">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
               <a href="{{url('services')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
@@ -71,28 +68,16 @@
       <div class="container">
         <div class="section-title text-center">
           <span>enterline</span>
-          <p>Enterline Computer</p>
+          <p id="about_header"></p>
         </div>
 
         <div class="row content">
-          <div class="col-lg-6">
-            <h2>Eum ipsam laborum deleniti velitena</h2>
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
+          <div class="col-lg-6 col-sm-12">
+            <h2>{{CRUDBooster::getSetting('appname')}}</h2>
+            <h3>{{CRUDBooster::getSetting('motto')}}</h3>
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
-            </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequa</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</li>
-            </ul>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+          <div class="col-lg-6 pt-4 pt-lg-0 col-sm-12">
+            <p id="about_content">
             </p>
           </div>
         </div>
@@ -140,19 +125,14 @@
                 <div class="col-md-6 col-sm-12">
                   <div class="section-title text-center">
                     <span>Approach</span>
-                    <p>Professional IT Services & Technology Consulting</p>
+                    <p id="home1_header"></p>
                   </div>
-                  <div class="text-left">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <div class="home1_text">
+                    <p id="home1_content"></p>
                   </div>
 
                   <div class="text-left btn-service2">
-                    <a href="" class="btn-learn">Learn More</a>
+                    <a href="{{url('services')}}" class="btn-learn">Learn More</a>
                   </div>
 
                   <div>
@@ -176,18 +156,13 @@
 
           <div class="col-md-6 col-sm-12">
             <div>
-              <h3>We Create Fully Connected Systems So You Can Focus On Your Business</h3>
+              <h3 id="home2_header"></h3>
             </div>
             <div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p id="home2_content"></p>
             </div>
              <div class="text-left btn-service2">
-                    <a href="">get started</a>
+                    <a href="{{url('contact')}}">get started</a>
              </div>
 
           </div>
@@ -213,70 +188,25 @@
         </div>
 
         <div class="row">
+
+          @foreach($testimoni as $test)
           <div class="col-md-6 col-sm-12">
-              <div class="card card-color1">
+              <div class="card" style="background-color: {{$test->background_color}}!important;color:{{$test->text_color}};">
               <div class="card-body">
                 <div class="text-left">
                     <img src="{{url('assets/img/pc/quote.png')}}">
                 </div>
 
-                <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                <h5 class="card-title">
+                  {{$test->content}}
                 </h5>
-                <p class="card-text">Khoerul Afif</p>
+                <p class="card-text">{{$test->nama}}</p>
               </div>
             </div>
           </div>
+          @endforeach
 
-          <div class="col-md-6 col-sm-12">
-              <div class="card card-color2">
-              <div class="card-body">
-                <div class="text-left">
-                    <img src="{{url('assets/img/pc/quote.png')}}">
-                </div>
-
-                <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                </h5>
-                <p class="card-text">Khoerul Afif</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-sm-12">
-              <div class="card card-color3">
-              <div class="card-body">
-                <div class="text-left">
-                    <img src="{{url('assets/img/pc/quote.png')}}">
-                </div>
-
-                <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                </h5>
-                <p class="card-text">Khoerul Afif</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-sm-12">
-              <div class="card card-color5">
-              <div class="card-body">
-                <div class="text-left">
-                    <img src="{{url('assets/img/pc/quote.png')}}">
-                </div>
-
-                <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                </h5>
-                <p class="card-text">Khoerul Afif</p>
-              </div>
-            </div>
-          </div>
-
+      
         </div>
 
       </div>

@@ -10,14 +10,20 @@ use Response;
 class FrontController extends Controller
 {
     public function index(){
+        $data['title']='home';
         $data['services']=DB::table('db_web_services')
                         ->where('status','publish')
                         ->get();
+        
+        $data['testimoni'] = DB::table('db_web_testimoni')
+                            ->where('status','publish')
+                            ->get();
 
         return view('web.index',$data);
     }
 
     public function services(){
+        $data['title']='services';
         $data['row']=DB::table('db_content_web')
                         ->where('kategori','services')
                         ->first();
@@ -40,7 +46,7 @@ class FrontController extends Controller
     }
 
     public function contact(){
-
+        $data['title']='contact';
         $data['row']=DB::table('db_content_web')
                         ->where('kategori','contact')
                         ->first();
@@ -141,7 +147,7 @@ class FrontController extends Controller
     }
 
     public function about(){
-
+        $data['title']='about';
         $data['about']=DB::table('db_content_web')
                         ->where('kategori','about')
                         ->first();
@@ -265,6 +271,18 @@ class FrontController extends Controller
         $respon['api_message']='Request Terkirim';
 
         return Response::json($respon);
+    }
+
+    public function webcontent($kategori){
+        $respon['data']=DB::table('db_content_web')
+                            ->where('kategori',$kategori)
+                            ->first();
+
+        $respon['api_status']='success';
+        $respon['api_message']='success get data';
+                    
+        return Response::json($respon);
+
     }
 
 

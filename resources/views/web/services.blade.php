@@ -45,18 +45,13 @@
 
           <div class="col-md-6 col-sm-12">
             <div>
-              <h3>We Create Fully Connected Systems So You Can Focus On Your Business</h3>
+              <h3 id="home2_header"></h3>
             </div>
             <div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p id="home2_content"></p>
             </div>
              <div class="text-left btn-service2">
-                    <a href="">get started</a>
+                    <a href="{{url('contact')}}">get started</a>
              </div>
 
           </div>

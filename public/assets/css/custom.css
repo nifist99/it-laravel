@@ -242,7 +242,7 @@
 	margin-top: 30px;
 	width: 100%;
 	text-align: left;
-	min-height: 200px;
+	min-height: 300px;
 }
 
 .testimonials .card .card-title{
@@ -372,6 +372,14 @@ border: 1px solid #EEEEEE;
 .image-services{
     width: 100%;
     border-radius: 10px;
+}
+
+.home1_text{
+    font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif;
+    font-size: 16px;
+    line-height: 1.8em;
+    color: black;
+    text-align: justify;
 }
 
 @media (max-width: 768px) {

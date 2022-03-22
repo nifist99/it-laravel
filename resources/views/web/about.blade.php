@@ -44,7 +44,7 @@
 
         @foreach($team as $key)
 
-         <div class="col-lg-6">
+         <div class="col-lg-6 col-sm-12 mt-10">
            <div class="member d-flex align-items-start">
              <div class="pic"><img src="{{url($key->photo)}}" class="img-fluid" alt=""></div>
              <div class="member-info">

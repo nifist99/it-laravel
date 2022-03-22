@@ -26,12 +26,14 @@ Route::get('detail_produk/{id}','FrontController@detail_produk');
 Route::get('single_services/{id}','FrontController@single_services');
 
 Route::get('link_services','FrontController@link_services');
+Route::get('webcontent/{kategori}','FrontController@webcontent');
 
 
 //builder
 Route::get('builder','BuilderController@index');
 Route::get('kategori_produk/{id}','BuilderController@kategori_produk');
 Route::get('produkpc/{nama}/{id}','BuilderController@produkpc');
+
 
 //post
 

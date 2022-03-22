@@ -6,13 +6,13 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta name="csrf-token" content="{{csrf_token()}}">
 
-  <title>{{CRUDBooster::getSetting('appname')}}</title>
+  <title>{{CRUDBooster::getSetting('appname')}}:@if($title) {{$title}} @endif</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{url('assets/img/favicon.png')}}" rel="icon">
-  <link href="{{url('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="{{CRUDBooster::getSetting('favicon')}}" rel="icon">
+  <link href="{{CRUDBooster::getSetting('favicon')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -160,6 +160,39 @@
                         html +='</li>';
                     });
                     $('#link_services').append(html);
+                                                                  
+             }
+          });
+
+          $.ajax({
+             type: "GET",
+             dataType: "json",
+             url: "{{url('webcontent/home1')}}",
+             success: function(respon){
+                $('#home1_header').text(respon.data.header);
+                $('#home1_content').text(respon.data.content);
+                                                                  
+             }
+          });
+
+          $.ajax({
+             type: "GET",
+             dataType: "json",
+             url: "{{url('webcontent/home2')}}",
+             success: function(respon){
+                $('#home2_header').text(respon.data.header);
+                $('#home2_content').text(respon.data.content);
+                                                                  
+             }
+          });
+
+          $.ajax({
+             type: "GET",
+             dataType: "json",
+             url: "{{url('webcontent/about')}}",
+             success: function(respon){
+                $('#about_header').text(respon.data.header);
+                $('#about_content').text(respon.data.content);
                                                                   
              }
           });
