@@ -24,6 +24,7 @@ Route::get('blog','FrontController@blog');
 Route::get('single_blog/{id}','FrontController@single_blog');
 Route::get('detail_produk/{id}','FrontController@detail_produk');
 Route::get('single_services/{id}','FrontController@single_services');
+Route::get('detail_project/{id}','FrontController@detail_project');
 
 Route::get('link_services','FrontController@link_services');
 Route::get('webcontent/{kategori}','FrontController@webcontent');

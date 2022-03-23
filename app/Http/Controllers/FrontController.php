@@ -12,7 +12,9 @@ class FrontController extends Controller
     public function index(){
         $data['title']='home';
         $data['services']=DB::table('db_web_services')
-                        ->where('status','publish')
+                        ->join('db_kategori_service','db_web_services.id_db_kategori_service','=','db_kategori_service.id')
+                        ->where('db_web_services.status','publish')
+                        ->select('db_kategori_service.nama as judul','db_web_services.*')
                         ->get();
         
         $data['testimoni'] = DB::table('db_web_testimoni')
@@ -32,6 +34,12 @@ class FrontController extends Controller
                             ->orderBy('created_at','desc')
                             ->limit(3)
                             ->get();
+        $data['project']=DB::table('db_project')
+                            ->join('db_kategori_service','db_project.id_db_kategori_service','=','db_kategori_service.id')
+                            ->where('db_project.status','publish')
+                            ->where('db_project.promote','active')
+                            ->select('db_project.*','db_kategori_service.singkatan')
+                            ->get();
 
         return view('web.index',$data);
     }
@@ -43,7 +51,9 @@ class FrontController extends Controller
                         ->first();
 
         $data['services']=DB::table('db_web_services')
-                        ->where('status','publish')
+                        ->join('db_kategori_service','db_web_services.id_db_kategori_service','=','db_kategori_service.id')
+                        ->where('db_web_services.status','publish')
+                        ->select('db_kategori_service.nama as judul','db_web_services.*')
                         ->get();
 
         return view('web.services',$data);
@@ -255,8 +265,13 @@ class FrontController extends Controller
     public function single_services($id){
         
         $data['row']=DB::table('db_web_services')
-                        ->where('id',$id)
+                        ->join('db_kategori_service','db_web_services.id_db_kategori_service','=','db_kategori_service.id')
+                        ->where('db_web_services.id',$id)
+                        ->select('db_kategori_service.nama as judul','db_web_services.*','db_kategori_service.id as id_kategori')
                         ->first();
+        $data['project']=DB::table('db_project')
+                        ->where('id_db_kategori_service',$data['row']->id_kategori)
+                        ->get();
         
         return view('web.single_services',$data);
 
@@ -300,6 +315,17 @@ class FrontController extends Controller
 
     }
 
+    public function detail_project($id){
+        
+ 
+        $data['row']=DB::table('db_project')
+                        ->join('db_kategori_service','db_project.id_db_kategori_service','=','db_kategori_service.id')
+                        ->where('db_project.id',$id)
+                        ->select('db_kategori_service.nama as judul','db_project.*')
+                        ->first();
+        
+        return view('web.detail_project',$data);
+    }
 
     
     

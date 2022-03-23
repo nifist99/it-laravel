@@ -31,14 +31,13 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Nama","name"=>"nama"];
-			$this->col[] = ["label"=>"Foto","name"=>"foto","image"=>true];
+			$this->col[] = ["label"=>"Singkatan","name"=>"singkatan"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
 			$this->form[] = ['label'=>'Nama','name'=>'nama','type'=>'text','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Foto','name'=>'foto','type'=>'upload','validation'=>'image|max:10000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
-			$this->form[] = ['label'=>'Note','name'=>'note','type'=>'textarea','validation'=>'string|min:1|max:5000','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Singkatan','name'=>'singkatan','type'=>'text','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM

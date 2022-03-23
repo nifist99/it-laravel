@@ -30,7 +30,7 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Judul","name"=>"judul"];
+			$this->col[] = ["label"=>"Kategori Service","name"=>"id_db_kategori_service","join"=>"db_kategori_service,nama"];
 			$this->col[] = ["label"=>"Icon","name"=>"icon","image"=>true];
 			$this->col[] = ["label"=>"Image","name"=>"image","image"=>true];
 			$this->col[] = ["label"=>"Background Color","name"=>"background_color"];
@@ -40,7 +40,7 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Judul','name'=>'judul','type'=>'text','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Kategori Service','name'=>'id_db_kategori_service','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'db_kategori_service,nama'];
 			$this->form[] = ['label'=>'Content','name'=>'content','type'=>'wysiwyg','validation'=>'required|string|min:1|max:50000','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Icon','name'=>'icon','type'=>'upload','validation'=>'required|image|max:3000','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Image','name'=>'image','type'=>'upload','validation'=>'required|image|max:10000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];

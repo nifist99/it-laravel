@@ -35,7 +35,7 @@
               </div>
 
               <h2 class="entry-title">
-                <a href="blog-single.html">{{$row->judul}}</a>
+                <a href="{{url('single_blog/'.$row->id)}}">{{$row->judul}}</a>
               </h2>
 
               <div class="entry-meta">
