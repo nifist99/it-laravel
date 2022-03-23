@@ -247,6 +247,36 @@
       </div>
     </section><!-- End Clients Section -->
 
+    {{-- produk best seller --}}
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>PRODUK</span>
+          <p>Produk Enterline (Best Seller)</p>
+        </div>
+
+          <div class="row">
+            @foreach($produk as $key)
+              <div class="col-md-3 col-sm-12 mt-10">
+                <div class="card" style="width: 90%;">
+                  <img class="card-img-top img-produk" src="{{url($key->foto)}}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title"><a style="color: black" href="{{url('detail_produk/'.$key->id)}}">{{substr($key->nama, 0, 30)}}...</a></h5>
+                    <p class="card-text"><b>{{number_format($key->harga)}}</b>&nbsp;<span>({{$key->status}})</span></p>
+                    <a href="{{url('detail_produk/'.$key->id)}}" class="btn btn-sm btn-primary">Cek Detail</a>
+                  </div>
+                </div>
+              </div>
+            @endforeach
+            <div class="text-center mt-50">
+              <a href="{{url('produk')}}" class="btn btn-lg" style="background-color:#ff8a3d;color:white;">View More</a>
+            </div>
+          </div>
+
+      </div>
+    </section>
+
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container">
@@ -398,6 +428,34 @@
 
       </div>
     </section><!-- End Portfolio Section -->
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title text-center">
+          <span>ARTIKEL</span>
+          <p>Blog Artikel</p>
+        </div>
+
+          <div class="row">
+            @foreach($blog as $b)
+              <div class="col-md-4 col-sm-12 mt-10">
+                <div class="card" style="width: 90%;">
+                  <img class="card-img-top img-produk" src="{{url($b->foto)}}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title"><a style="color: black" href="{{url('detail_produk/'.$b->id)}}">{{substr($b->judul, 0, 50)}}...</a></h5>
+                    <hr>
+                    <p>by: <span>{{$b->name}}</span></p>
+                  </div>
+                </div>
+              </div>
+            @endforeach
+            <div class="text-center mt-50">
+              <a href="{{url('blog')}}" class="btn btn-lg" style="background-color:#15314e;color:white;">View More</a>
+            </div>
+          </div>
+
+      </div>
+    </section>
 
   </main><!-- End #main -->
 

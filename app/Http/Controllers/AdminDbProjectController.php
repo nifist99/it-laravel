@@ -264,6 +264,7 @@
 	    */
 	    public function hook_before_add(&$postdata) {        
 	        //Your code here
+			$postdata['id_cms_users']=CRUDBooster::myId();
 
 	    }
 

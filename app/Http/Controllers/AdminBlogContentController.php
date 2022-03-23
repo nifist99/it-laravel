@@ -33,7 +33,75 @@
 			$this->col[] = ["label"=>"Judul","name"=>"judul"];
 			$this->col[] = ["label"=>"Kategori","name"=>"id_blog_kategori","join"=>"blog_kategori,nama"];
 			$this->col[] = ["label"=>"Foto","name"=>"foto","image"=>true];
-			$this->col[] = ["label"=>"Status","name"=>"status"];
+			$this->col[] = ["label"=>"Status","name"=>"status","callback"=>function($row){
+				if ($row->status=='publish') 
+				{
+					return '<div class="btn-group">
+					<button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+						publish <span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<a onclick="publish('.$row->id.')" style="cursor:pointer;color:blue">publish</a>
+						</li>
+						<li>
+							<a onclick="unpublish('.$row->id.')" style="cursor:pointer;color:red">unpublish</a>
+						</li>
+						<li>
+							<a onclick="waiting('.$row->id.')" style="cursor:pointer;color:yellow">waiting</a>
+						</li>
+					</ul>
+					</div>';
+				}elseif($row->status=='unpublish'){
+					return '<div class="btn-group">
+					<button type="button" class="btn btn-danger btn-xs dropdown-toggle" data-toggle="dropdown">
+						unpublish <span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<a onclick="publish('.$row->id.')" style="cursor:pointer;color:blue">publish</a>
+						</li>
+						<li>
+							<a onclick="unpublish('.$row->id.')" style="cursor:pointer;color:red">unpublish</a>
+						</li>
+						<li>
+							<a onclick="waiting('.$row->id.')" style="cursor:pointer;color:yellow">waiting</a>
+						</li>
+					</ul>
+					</div>';
+				}else{
+					return '<div class="btn-group">
+					<button type="button" class="btn btn-warning btn-xs dropdown-toggle" data-toggle="dropdown">
+						waiting <span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<a onclick="publish('.$row->id.')" style="cursor:pointer;color:blue">publish</a>
+						</li>
+						<li>
+							<a onclick="unpublish('.$row->id.')" style="cursor:pointer;color:red">unpublish</a>
+						</li>
+						<li>
+							<a onclick="waiting('.$row->id.')" style="cursor:pointer;color:yellow">waiting</a>
+						</li>
+					</ul>
+					</div>';
+				}
+			}];
+			$this->col[] = ["label"=>"Promote","name"=>"promote","callback"=>function($row){
+				if($row->promote=='pending'){
+					return ' <a class="btn btn-xs btn-warning" href="'.CRUDBooster::mainpath('set-status/active/'.$row->id).'">'.$row->promote.'</a>';
+				}elseif($row->promote=='active'){
+					return ' <a class="btn btn-xs btn-primary" href="'.CRUDBooster::mainpath('set-status/pending/'.$row->id).'">'.$row->promote.'</a>';
+				}else{
+					return ' <a class="btn btn-xs btn-success" href="'.CRUDBooster::mainpath('set-status/active/'.$row->id).'">set active</a>';
+				}
+			}];
+			
+
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -42,7 +110,8 @@
 			$this->form[] = ['label'=>'Kategori','name'=>'id_blog_kategori','type'=>'select2','validation'=>'required','width'=>'col-sm-10','datatable'=>'blog_kategori,nama'];
 			$this->form[] = ['label'=>'Foto','name'=>'foto','type'=>'upload','validation'=>'required|image|max:10000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
 			$this->form[] = ['label'=>'Content','name'=>'content','type'=>'wysiwyg','validation'=>'required|string|min:1|max:500000','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Status','name'=>'status','type'=>'select','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10','dataenum'=>'publish;unpublish'];
+			
+
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -81,6 +150,8 @@
 	        | 
 	        */
 	        $this->addaction = array();
+			// $this->addaction[] = ['label'=>'Set Active','url'=>CRUDBooster::mainpath('set-status/active/[id]'),'icon'=>'fa fa-check','color'=>'success','showIf'=>"[promote] == 'pending'"];
+			// $this->addaction[] = ['label'=>'Set Pending','url'=>CRUDBooster::mainpath('set-status/pending/[id]'),'icon'=>'fa fa-ban','color'=>'warning','showIf'=>"[promote] == 'active'", 'confirmation' => true];
 
 
 	        /* 
@@ -152,6 +223,54 @@
 	        |
 	        */
 	        $this->script_js = NULL;
+			$this->script_js = "
+			function publish(id){
+				swal({
+					title: 'Change Status publish ?',
+					type:'info',
+					showCancelButton:true,
+					allowOutsideClick:true,
+					confirmButtonColor: '#DD6B55',
+					confirmButtonText: 'Yes',
+					cancelButtonText: 'No',
+					closeOnConfirm: false
+				}, function(){
+					location.href = '".CRUDBooster::mainpath("publish/")."'+id;
+
+				});
+			};
+
+			function unpublish(id){
+				swal({
+					title: 'Change Status unpublish ?',
+					type:'info',
+					showCancelButton:true,
+					allowOutsideClick:true,
+					confirmButtonColor: '#DD6B55',
+					confirmButtonText: 'Yes',
+					cancelButtonText: 'No',
+					closeOnConfirm: false
+				}, function(){
+					location.href = '".CRUDBooster::mainpath("unpublish/")."'+id;
+				});
+			};
+			
+			function waiting(id){
+				swal({
+					title: 'Change Status Waiting ?',
+					type:'info',
+					showCancelButton:true,
+					allowOutsideClick:true,
+					confirmButtonColor: '#DD6B55',
+					confirmButtonText: 'Yes',
+					cancelButtonText: 'No',
+					closeOnConfirm: false
+				}, function(){
+					location.href = '".CRUDBooster::mainpath("waiting/")."'+id;
+				});
+			};
+			";
+
 
 
             /*
@@ -325,6 +444,64 @@
 	        //Your code here
 
 	    }
+
+		public function getPublish($id){
+
+	    	$status['status']="publish";
+
+	    	$cek=DB::table('blog_content')->where('id',$id)->update($status);
+
+	    	 if($cek !=null) {				
+		    $res = redirect()->back()->with(["message"=>"Succesfully change status",'message_type'=>'success'])->withInput();
+		    }else{
+		    $res = redirect()->back()->with(["message"=>"Error change status",'message_type'=>'warning'])->withInput();
+		    	}
+		    		\Session::driver()->save();
+		    	$res->send();
+		    	exit();
+
+	    }
+
+		public function getUnpublish($id){
+
+	    	$status['status']="unpublish";
+
+	    	$cek=DB::table('blog_content')->where('id',$id)->update($status);
+
+	    	 if($cek !=null) {				
+		    $res = redirect()->back()->with(["message"=>"Succesfully change status",'message_type'=>'success'])->withInput();
+		    }else{
+		    $res = redirect()->back()->with(["message"=>"Error change status",'message_type'=>'warning'])->withInput();
+		    	}
+		    		\Session::driver()->save();
+		    	$res->send();
+		    	exit();
+
+	    }
+
+		public function getWaiting($id){
+
+	    	$status['status']="waiting";
+
+	    	$cek=DB::table('blog_content')->where('id',$id)->update($status);
+
+	    	 if($cek !=null) {				
+		    $res = redirect()->back()->with(["message"=>"Succesfully change status",'message_type'=>'success'])->withInput();
+		    }else{
+		    $res = redirect()->back()->with(["message"=>"Error change status",'message_type'=>'warning'])->withInput();
+		    	}
+		    		\Session::driver()->save();
+		    	$res->send();
+		    	exit();
+
+	    }
+
+		public function getSetStatus($status,$id) {
+			DB::table('blog_content')->where('id',$id)->update(['promote'=>$status]);
+			
+			//This will redirect back and gives a message
+			CRUDBooster::redirect($_SERVER['HTTP_REFERER'],"The status product has been updated !","info");
+		 }
 
 
 

@@ -19,6 +19,20 @@ class FrontController extends Controller
                             ->where('status','publish')
                             ->get();
 
+        $data['produk'] = DB::table('db_produk')
+                            ->where('promote','active')
+                            ->orderBy('created_at','desc')
+                            ->limit(4)
+                            ->get();
+        $data['blog'] = DB::table('blog_content')
+                            ->join('cms_users','blog_content.id_cms_users','=','cms_users.id')
+                            ->where('blog_content.status','publish')
+                            ->where('blog_content.promote','active')
+                            ->select('blog_content.*','cms_users.name')
+                            ->orderBy('created_at','desc')
+                            ->limit(3)
+                            ->get();
+
         return view('web.index',$data);
     }
 
@@ -153,6 +167,7 @@ class FrontController extends Controller
                         ->first();
 
         $data['team'] = DB::table('cms_users')
+                        ->where('id_cms_privileges','!=',1)
                         ->where('status','active')
                         ->get();
 
