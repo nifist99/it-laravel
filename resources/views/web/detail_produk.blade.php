@@ -50,7 +50,7 @@
                     </tr>
                     @if($row->url_online_shope)
                     <tr>
-                        <td>Url Online Shope</td>
+                        <td>Link Url</td>
                         <td>:</td>
                         <td><a href="{{$row->url_online_shope}}">{{$row->url_online_shope}}</a></td>
                     </tr>

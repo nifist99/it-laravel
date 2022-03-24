@@ -3,6 +3,22 @@
 	min-height: 100vh;
 }
 
+.wa{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	left:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+    font-size:40px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+
 .about{
 	background-color: #fdfdfd;
 }
@@ -437,5 +453,12 @@ border: 1px solid #EEEEEE;
 .text-about{
 	width: 100%;
 	}
+.wa{
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    left: 10px;
+    font-size:30px;
+}
 
 }

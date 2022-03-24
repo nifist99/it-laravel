@@ -40,6 +40,10 @@
 
 <body>
 
+  <a href="https://api.whatsapp.com/send?phone=+62{{CRUDBooster::getSetting('phone')}}&text=Halo" class="wa" target="_blank">
+    <i class="fa fa-whatsapp my-wa"></i>
+    </a>
+
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
@@ -75,7 +79,7 @@
               <h3>{{CRUDBooster::getSetting('appname')}}</h3>
               <p>
                 {{CRUDBooster::getSetting('alamat')}}<br><br>
-                <strong>Phone:</strong>{{CRUDBooster::getSetting('phone')}}<br>
+                <strong>Phone:</strong>0{{CRUDBooster::getSetting('phone')}}<br>
                 <strong>Email:</strong>{{CRUDBooster::getSetting('email')}}<br>
               </p>
               <div class="social-links mt-3">

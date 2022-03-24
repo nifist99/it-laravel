@@ -279,6 +279,8 @@ class FrontController extends Controller
 
     public function link_services(){
         $respon['data']=DB::table('db_web_services')
+                        ->join('db_kategori_service','db_web_services.id_db_kategori_service','=','db_kategori_service.id')
+                        ->select('db_kategori_service.nama as judul','db_web_services.*','db_kategori_service.id as id_kategori')
                             ->get();
 
         $respon['api_status']='success';
