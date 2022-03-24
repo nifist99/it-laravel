@@ -35,7 +35,15 @@
 			$this->col[] = ["label"=>"Image","name"=>"image","image"=>true];
 			$this->col[] = ["label"=>"Background Color","name"=>"background_color"];
 			$this->col[] = ["label"=>"Text Color","name"=>"text_color"];
-			$this->col[] = ["label"=>"Status","name"=>"status"];
+			$this->col[] = ["label"=>"Status","name"=>"status","callback"=>function($row){
+				if($row->status=='unpublish'){
+					return ' <a class="btn btn-xs btn-danger" href="'.CRUDBooster::mainpath('set-status/publish/'.$row->id).'">'.$row->status.'</a>';
+				}elseif($row->status=='publish'){
+					return ' <a class="btn btn-xs btn-primary" href="'.CRUDBooster::mainpath('set-status/unpublish/'.$row->id).'">'.$row->status.'</a>';
+				}else{
+					return ' <a class="btn btn-xs btn-success" href="'.CRUDBooster::mainpath('set-status/publish/'.$row->id).'">set publish</a>';
+				}
+			}];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -330,6 +338,13 @@
 	        //Your code here
 
 	    }
+
+		public function getSetStatus($status,$id) {
+			DB::table('db_web_services')->where('id',$id)->update(['status'=>$status]);
+			
+			//This will redirect back and gives a message
+			CRUDBooster::redirect($_SERVER['HTTP_REFERER'],"The status product has been updated !","info");
+		 }
 
 
 

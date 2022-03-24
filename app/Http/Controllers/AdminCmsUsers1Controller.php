@@ -37,7 +37,15 @@
 			$this->col[] = ["label"=>"Jabatan","name"=>"jabatan"];
 			$this->col[] = ["label"=>"Youtube","name"=>"youtube"];
 			$this->col[] = ["label"=>"Linkend","name"=>"linkend"];
-			$this->col[] = ["label"=>"Status","name"=>"status"];
+			$this->col[] = ["label"=>"Status","name"=>"status","callback"=>function($row){
+				if($row->status=='notactive'){
+					return ' <a class="btn btn-xs btn-danger" href="'.CRUDBooster::mainpath('set-status/active/'.$row->id).'">'.$row->status.'</a>';
+				}elseif($row->status=='active'){
+					return ' <a class="btn btn-xs btn-primary" href="'.CRUDBooster::mainpath('set-status/notactive/'.$row->id).'">'.$row->status.'</a>';
+				}else{
+					return ' <a class="btn btn-xs btn-success" href="'.CRUDBooster::mainpath('set-status/active/'.$row->id).'">set active</a>';
+				}
+			}];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -335,6 +343,13 @@
 	        //Your code here
 
 	    }
+
+		public function getSetStatus($status,$id) {
+			DB::table('cms_users')->where('id',$id)->update(['status'=>$status]);
+			
+			//This will redirect back and gives a message
+			CRUDBooster::redirect($_SERVER['HTTP_REFERER'],"The status product has been updated !","info");
+		 }
 
 
 
