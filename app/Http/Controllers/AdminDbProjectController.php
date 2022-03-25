@@ -4,6 +4,7 @@
 	use Request;
 	use DB;
 	use CRUDBooster;
+	use Illuminate\Support\Facades\Storage;
 
 	class AdminDbProjectController extends \crocodicstudio\crudbooster\controllers\CBController {
 
@@ -32,7 +33,7 @@
 			$this->col = [];
 			$this->col[] = ["label"=>"Kategori Service","name"=>"id_db_kategori_service","join"=>"db_kategori_service,nama"];
 			$this->col[] = ["label"=>"Nama","name"=>"nama"];
-			$this->col[] = ["label"=>"Harga","name"=>"harga"];
+			$this->col[] = ["label"=>"Harga","name"=>"harga","callback_php"=>'number_format([harga])'];
 			$this->col[] = ["label"=>"Foto","name"=>"foto","image"=>true];
 			$this->col[] = ["label"=>"Status","name"=>"status","callback"=>function($row){
 				if ($row->status=='publish') 
@@ -428,6 +429,8 @@
 	    */
 	    public function hook_before_delete($id) {
 	        //Your code here
+			$file=DB::table('db_project')->where('id',$id)->first();
+			Storage::delete($file->foto);
 
 	    }
 

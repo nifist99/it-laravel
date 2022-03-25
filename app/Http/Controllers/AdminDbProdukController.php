@@ -4,6 +4,7 @@
 	use Request;
 	use DB;
 	use CRUDBooster;
+	use Illuminate\Support\Facades\Storage;
 
 	class AdminDbProdukController extends \crocodicstudio\crudbooster\controllers\CBController {
 
@@ -16,7 +17,7 @@
 			$this->global_privilege = false;
 			$this->button_table_action = true;
 			$this->button_bulk_action = true;
-			$this->button_action_style = "button_icon_text";
+			$this->button_action_style = "button_icon";
 			$this->button_add = true;
 			$this->button_edit = true;
 			$this->button_delete = true;
@@ -33,7 +34,9 @@
 			$this->col[] = ["label"=>"Nama","name"=>"nama"];
 			$this->col[] = ["label"=>"Kategori Produk","name"=>"id_db_kategori_produk","join"=>"db_kategori_produk,nama"];
 			$this->col[] = ["label"=>"Stock","name"=>"stock"];
-			$this->col[] = ["label"=>"Harga","name"=>"harga"];
+			$this->col[] = ["label"=>"Sell","name"=>"sell"];
+			$this->col[] = ["label"=>"Harga","name"=>"harga","callback_php"=>'number_format([harga])'];
+			$this->col[] = ["label"=>"Hpp","name"=>"hpp","callback_php"=>'number_format([hpp])'];
 			$this->col[] = ["label"=>"Foto","name"=>"foto","image"=>true];
 			$this->col[] = ["label"=>"Status","name"=>"status","callback"=>function($row){
 				if ($row->status=='ready') 
@@ -109,7 +112,9 @@
 			$this->form[] = ['label'=>'Nama','name'=>'nama','type'=>'text','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Kategori Produk','name'=>'id_db_kategori_produk','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'db_kategori_produk,nama'];
 			$this->form[] = ['label'=>'Harga','name'=>'harga','type'=>'money','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Hpp','name'=>'hpp','type'=>'money','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Stock','name'=>'stock','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Sell','name'=>'sell','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Detail','name'=>'detail','type'=>'wysiwyg','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Foto','name'=>'foto','type'=>'upload','validation'=>'required|image|max:10000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
 			$this->form[] = ['label'=>'Status','name'=>'status','type'=>'select','validation'=>'required|string|min:1|max:500000','width'=>'col-sm-10','dataenum'=>'ready;soldout'];
@@ -429,6 +434,8 @@
 	    */
 	    public function hook_before_delete($id) {
 	        //Your code here
+			$file=DB::table('db_produk')->where('id',$id)->first();
+			Storage::delete($file->foto);
 
 	    }
 
