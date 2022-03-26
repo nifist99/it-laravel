@@ -41,20 +41,18 @@
                     <tr>
                         <td>Stock</td>
                         <td>:</td>
-                        <td>{{$row->stock}}</td>
+                        <td><button class="btn btn-sm btn-success">{{$row->stock}}</button></td>
                     </tr>
                     <tr>
                         <td>Status</td>
                         <td>:</td>
                         <td>{{$row->status}}</td>
                     </tr>
-                    @if($row->url_online_shope)
                     <tr>
-                        <td>Link Url</td>
+                        <td>Produk Terjual</td>
                         <td>:</td>
-                        <td><a href="{{$row->url_online_shope}}">{{$row->url_online_shope}}</a></td>
+                        <td><button class="btn btn-sm btn-danger">{{$row->sell}}</button></td>
                     </tr>
-                    @endif
                 </table>
                 </div>
                 <div class="detail-body">

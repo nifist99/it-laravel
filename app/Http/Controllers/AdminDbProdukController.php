@@ -105,6 +105,9 @@
 					return ' <a class="btn btn-xs btn-success" href="'.CRUDBooster::mainpath('set-status/active/'.$row->id).'">set active</a>';
 				}
 			}];
+			$this->col[] = ["label"=>"Link Toko","name"=>"url_online_shope","callback"=>function($row){
+				return '<a href='.$row->url_online_shope.'>Link Toko</a>';
+			}];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -118,7 +121,7 @@
 			$this->form[] = ['label'=>'Detail','name'=>'detail','type'=>'wysiwyg','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Foto','name'=>'foto','type'=>'upload','validation'=>'required|image|max:10000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
 			$this->form[] = ['label'=>'Status','name'=>'status','type'=>'select','validation'=>'required|string|min:1|max:500000','width'=>'col-sm-10','dataenum'=>'ready;soldout'];
-			$this->form[] = ['label'=>'Url Online Shope','name'=>'url_online_shope','type'=>'text','validation'=>'string|min:1|max:5000','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Link Toko','name'=>'url_online_shope','type'=>'text','validation'=>'string|min:1|max:5000','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
