@@ -320,7 +320,7 @@
                 <div class="card" style="width: 90%;">
                   <img class="card-img-top img-produk" src="{{url($b->foto)}}" alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title"><a style="color: black" href="{{url('detail_produk/'.$b->id)}}">{{substr($b->judul, 0, 50)}}...</a></h5>
+                    <h5 class="card-title"><a style="color: black" href="{{url('single_blog/'.$b->id)}}">{{substr($b->judul, 0, 50)}}...</a></h5>
                     <hr>
                     <p>by: <span>{{$b->name}}</span></p>
                   </div>

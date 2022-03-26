@@ -37,6 +37,10 @@
 			$this->col[] = ["label"=>"Sell","name"=>"sell"];
 			$this->col[] = ["label"=>"Harga","name"=>"harga","callback_php"=>'number_format([harga])'];
 			$this->col[] = ["label"=>"Hpp","name"=>"hpp","callback_php"=>'number_format([hpp])'];
+			$this->col[] = ["label"=>"profit","name"=>"harga","callback"=>function($row){
+				$keuntungan=$row->harga-$row->hpp;
+				return '<strong>'.number_format($keuntungan).'</strong>';
+			}];
 			$this->col[] = ["label"=>"Foto","name"=>"foto","image"=>true];
 			$this->col[] = ["label"=>"Status","name"=>"status","callback"=>function($row){
 				if ($row->status=='ready') 
@@ -108,6 +112,7 @@
 			$this->col[] = ["label"=>"Link Toko","name"=>"url_online_shope","callback"=>function($row){
 				return '<a href='.$row->url_online_shope.'>Link Toko</a>';
 			}];
+			
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
