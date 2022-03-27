@@ -123,7 +123,7 @@
 			$this->form[] = ['label'=>'Hpp','name'=>'hpp','type'=>'money','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Stock','name'=>'stock','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Sell','name'=>'sell','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Detail','name'=>'detail','type'=>'wysiwyg','validation'=>'required|string|min:1|max:5000','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Detail','name'=>'detail','type'=>'wysiwyg','validation'=>'required|string|min:1|max:500000','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Foto','name'=>'foto','type'=>'upload','validation'=>'required|image|max:10000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
 			$this->form[] = ['label'=>'Status','name'=>'status','type'=>'select','validation'=>'required|string|min:1|max:500000','width'=>'col-sm-10','dataenum'=>'ready;soldout'];
 			$this->form[] = ['label'=>'Link Toko','name'=>'url_online_shope','type'=>'text','validation'=>'string|min:1|max:5000','width'=>'col-sm-10'];
