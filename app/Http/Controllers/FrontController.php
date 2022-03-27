@@ -131,6 +131,7 @@ class FrontController extends Controller
     public function single_blog($id){
 
         $data['title']='Single Blog';
+        $data['id']=$id;
         $data['row']=DB::table('blog_content')
                     ->join('cms_users','blog_content.id_cms_users','=','cms_users.id')
                     ->join('blog_kategori','blog_content.id_blog_kategori','=','blog_kategori.id')

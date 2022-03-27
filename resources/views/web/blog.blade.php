@@ -27,10 +27,12 @@
 
           <div class="col-lg-8 entries">
             @foreach($blog as $b)
+            @php $jumlah_komentar=DB::table('blog_komentar')
+            ->where('id_blog_content',$b->id)->count(); @endphp
             <article class="entry">
 
               <div class="entry-img">
-                <img src="{{url($b->foto)}}" alt="" class="img-fluid">
+                <img src="{{url($b->foto)}}" alt="" class="img-fluid" style='width:100%!important'>
               </div>
 
               <h2 class="entry-title">
@@ -39,9 +41,9 @@
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{$b->name}}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$b->created_at}}</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{{url('single_blog/'.$b->id)}}">{{$b->name}}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{{url('single_blog/'.$b->id)}}"><time datetime="2020-01-01">{{$b->created_at}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{{url('single_blog/'.$b->id)}}">{{$jumlah_komentar}} Comments</a></li>
                 </ul>
               </div>
 

@@ -31,7 +31,7 @@
             <article class="entry entry-single">
 
               <div class="entry-img">
-                <img src="{{url($row->foto)}}" alt="" class="img-fluid">
+                <img src="{{url($row->foto)}}" alt="" class="img-fluid" style='width:100%!important'>
               </div>
 
               <h2 class="entry-title">
@@ -98,7 +98,7 @@
                 <h4>Leave a Reply</h4>
                 <p>Your email address will not be published. Required fields are marked * </p>
                 <form id="komentar">
-                  <input type="hidden" id="id_blog_content" name="id_blog_content" value="{{$row->id}}">
+                  <input type="hidden" id="id_blog_content" name="id_blog_content" value="{{$id}}">
                   <div class="row">
                     <div class="col form-group">
                       <input id="nama" name="nama" type="text" class="form-control" placeholder="Your name">
