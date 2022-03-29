@@ -115,12 +115,14 @@ class FrontController extends Controller
                         ->join('cms_users','blog_content.id_cms_users','=','cms_users.id')
                         ->where('blog_content.status','publish')
                         ->where('blog_content.id_blog_kategori',$by_kategori)
+                        ->orderBy('blog_content.created_at','desc')
                         ->select('blog_content.*','cms_users.name')
                         ->paginate(5);
         }else{
             $data['blog'] = DB::table('blog_content')
                         ->join('cms_users','blog_content.id_cms_users','=','cms_users.id')
                         ->where('blog_content.status','publish')
+                        ->orderBy('blog_content.created_at','desc')
                         ->select('blog_content.*','cms_users.name')
                         ->paginate(5);
         }
