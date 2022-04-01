@@ -44,6 +44,19 @@
                   <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{{url('single_blog/'.$b->id)}}">{{$b->name}}</a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{{url('single_blog/'.$b->id)}}"><time datetime="2020-01-01">{{$b->created_at}}</time></a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{{url('single_blog/'.$b->id)}}">{{$jumlah_komentar}} Comments</a></li>
+
+                  <li class="d-flex align-items-center">
+                    
+                    <div class="fb-like" 
+                         data-href="{{url('single_blog/'.$b->id)}}" 
+                         data-width=""
+                         data-layout="button_count" 
+                         data-action="like" 
+                         data-size="small"  
+                         data-share="true">
+                    </div>
+                  </li>
+
                 </ul>
               </div>
 
@@ -113,5 +126,25 @@
     </section><!-- End Blog Section -->
 
   </main><!-- End #main -->
+  <div id="fb-root"></div>
+  @push('js')
+  
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v13.0&appId=540457940831032";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+  <script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1
+             &version=v13.0
+             &appId=540457940831032
+             &autoLogAppEvents=1" 
+        nonce="FOKrbAYI">
+  </script>
+  @endpush
 
 @endsection
